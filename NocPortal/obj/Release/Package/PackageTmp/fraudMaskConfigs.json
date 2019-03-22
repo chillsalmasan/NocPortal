@@ -1,0 +1,148 @@
+{
+"1": {
+"Name": "GLOBAL_ERROR",
+"Description": "A general global error occurred"
+},
+"2": {
+"Name": "IPS_BY_BLACKLIST",
+"Description": "IP is blacklisted"
+},
+"4": {
+"Name": "BY_DOMAIN_GHOST",
+"Description": "?"
+},
+"8": {
+"Name": "BY_DOMAIN_MALWARE",
+"Description": "?"
+},
+"16": {
+"Name": "BY_DOMAIN_NO_ADS",
+"Description": "?"
+},
+"32": {
+"Name": "BY_DOMAIN_ALTERNATIVE_GHOST",
+"Description": "?"
+},
+"64": {
+"Name": "BY_DOMAIN_ALTERNATIVE_MALWARE",
+"Description": "?"
+},
+"128": {
+"Name": "BY_DOMAIN_TORRENT",
+"Description": "?"
+},
+"256": {
+"Name": "BY_DOMAIN_MOBILE_FRAUDULENT_APPS",
+"Description": "?"
+},
+"512": {
+"Name": "RAPID_CLICKS",
+"Description": "?"
+},
+"1024": {
+"Name": "SESSION_FOOTPRINT_GEO",
+"Description": "?"
+},
+"2048": {
+"Name": "SESSION_FOOTPRINT_OS",
+"Description": "?"
+},
+"4096": {
+"Name": "USERS_BY_IMPRESSIONS_NON_MOBILE_VIDEO",
+"Description": "Users that match: # of impressions per User Id for Non Mobile (MB) Video feed type"
+},
+"8192": {
+"Name": "USERS_BY_IMPRESSIONS_NON_MOBILE_DISPLAY",
+"Description": "Users that match: # of impressions per User Id for Non Mobile (MB) Display feed type"
+},
+"16384": {
+"Name": "USERS_BY_VALID_CLICKS_NON_MOBILE_VIDEO",
+"Description": "Users that match: # of valid clicks (IsClick = '1') per User Id for Non Mobile (MB) Video feed type"
+},
+"32768": {
+"Name": "USERS_BY_VALID_CLICKS_NON_MOBILE_DISPLAY",
+"Description": "Users that match: # of valid clicks (IsClick = '1') per User Id for Non Mobile (MB) Display feed type"
+},
+"65536": {
+"Name": "USERS_BY_GEO_FOOTPRINT_NON_MOBILE_VIDEO",
+"Description": "Users that match: # of GEO footprint discrepancies per User Id for Non Mobile (MB) Video feed type"
+},
+"131072": {
+"Name": "USERS_BY_GEO_FOOTPRINT_NON_MOBILE_DISPLAY",
+"Description": "Users that match: # of GEO footprint discrepancies per User Id for Non Mobile (MB) Display feed type"
+},
+"262144": {
+"Name": "USERS_BY_GEO_FOOTPRINT_MOBILE_VIDEO",
+"Description": "Users that match: # of GEO footprint discrepancies per User Id for Mobile (MB) Video feed type"
+},
+"524288": {
+"Name": "USERS_BY_GEO_FOOTPRINT_MOBILE_DISPLAY",
+"Description": "Users that match: # of GEO footprint discrepancies per User Id for Mobile (MB) Display feed type"
+},
+"1048576": {
+"Name": "SESSION_FOOTPRINT_DEVICE",
+"Description": "?"
+},
+"2097152": {
+"Name": "USERS_BY_IMPRESSIONS_MOBILE_VIDEO",
+"Description": "Users that match: # of impressions per User Id for Mobile (MB) Video feed type"
+},
+"4194304": {
+"Name": "USERS_BY_IMPRESSIONS_MOBILE_DISPLAY",
+"Description": "Users that match: # of impressions per User Id for Mobile (MB) Display feed type"
+},
+"8388608": {
+"Name": "USERS_BY_INTERVAL_IMPRESSIONS_NON_MOBILE_VIDEO",
+"Description": "users that match: # of intervals where number of impressions passed a threshold for Non Mobile Video"
+},
+"16777216": {
+"Name": "USERS_BY_INTERVAL_IMPRESSIONS_NON_MOBILE_DISPLAY",
+"Description": "users that match: # of intervals where number of impressions passed a threshold for Non Mobile Display"
+},
+"33554432": {
+"Name": "USERS_BY_VALID_CLICKS_MOBILE_VIDEO",
+"Description": "Users that match: # of valid clicks (IsClick = '1') per User Id for Mobile (MB) Video feed type"
+},
+"67108864": {
+"Name": "USERS_BY_VALID_CLICKS_MOBILE_DISPLAY",
+"Description": "Users that match: # of valid clicks (IsClick = '1') per User Id for Mobile (MB) Display feed type"
+},
+"134217728": {
+"Name": "USERS_BY_DEVICE_FOOTPRINT_MOBILE_VIDEO",
+"Description": "Users that match: # of Device footprint discrepancies per User Id for Mobile (MB) Video feed type"
+},
+"268435456": {
+"Name": "USERS_BY_DEVICE_FOOTPRINT_MOBILE_DISPLAY",
+"Description": "Users that match: # of Device footprint discrepancies per User Id for Mobile (MB) Display feed type"
+},
+"536870912": {
+"Name": "USERS_BY_OS_FOOTPRINT_NON_MOBILE_VIDEO",
+"Description": "Users that match: # of OS footprint discrepancies per User Id for Non Mobile (MB) Video feed type"
+},
+"1073741824": {
+"Name": "USERS_BY_OS_FOOTPRINT_NON_MOBILE_DISPLAY",
+"Description": "Users that match: # of OS footprint discrepancies per User Id for Non Mobile (MB) Display feed type"
+},
+"2147483648": {
+"Name": "USERS_BY_OS_FOOTPRINT_MOBILE_VIDEO",
+"Description": "Users that match: # of OS footprint discrepancies per User Id for Mobile (MB) Video feed type"
+},
+"4294967296": {
+"Name": "USERS_BY_OS_FOOTPRINT_MOBILE_DISPLAY",
+"Description": "Users that match: # of OS footprint discrepancies per User Id for Mobile (MB) Display feed type"
+},
+"8589934592": {
+"Name": "SESSION_AD_STACKING",
+"Description": "?"
+},
+"17179869184": {
+"Name": "SESSION_AD_COLLISION",
+"Description": "?"
+},
+"34359738368": {
+"Name": "SESSION_AD_CAROUSEL",
+"Description": "?"
+}
+}
+
+

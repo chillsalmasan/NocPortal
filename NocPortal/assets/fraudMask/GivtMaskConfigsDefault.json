@@ -1,0 +1,119 @@
+{
+"1": {
+"Name": "IPS_BY_BLACKLIST",
+"Description": "IP is blacklisted"
+},
+"2": {
+"Name": "RAPID_CLICKS",
+"Description": "Time difference between an impression and a click in a session is less than 2 seconds"
+},
+"4": {
+"Name": "SESSION_FOOTPRINT_GEO",
+"Description": "The number of unique cities in the session is greater than 2"
+},
+"8": {
+"Name": "SESSION_FOOTPRINT_OS",
+"Description": "The number of unique OS's in the session is greater than 1"
+},
+"16": {
+"Name": "SESSION_FOOTPRINT_DEVICE",
+"Description": "The number of unique devices in a mobile session is greater than 1"
+},
+"32": {
+"Name": "USERS_BY_IMPRESSIONS_NON_MOBILE_VIDEO",
+"Description": "The number of non-mobile video impressions per user is greater than 31"
+},
+"64": {
+"Name": "USERS_BY_IMPRESSIONS_NON_MOBILE_DISPLAY",
+"Description": "The number of non-mobile display impressions per user is greater than 79"
+},
+"128": {
+"Name": "USERS_BY_VALID_CLICKS_NON_MOBILE_VIDEO",
+"Description": "The number of non-mobile video clicks per user is greater than 2"
+},
+"256": {
+"Name": "USERS_BY_VALID_CLICKS_NON_MOBILE_DISPLAY",
+"Description": "The number of non-mobile display clicks per user is greater than 7"
+},
+"512": {
+"Name": "USERS_BY_GEO_FOOTPRINT_NON_MOBILE_VIDEO",
+"Description": "The number of cities per user is greater than 2"
+},
+"1024": {
+"Name": "USERS_BY_GEO_FOOTPRINT_NON_MOBILE_DISPLAY",
+"Description": "The number of cities per user is greater than 2"
+},
+"2048": {
+"Name": "USERS_BY_GEO_FOOTPRINT_MOBILE_VIDEO",
+"Description": "The number of cities per user is greater than 2"
+},
+"4096": {
+"Name": "USERS_BY_GEO_FOOTPRINT_MOBILE_DISPLAY",
+"Description": "The number of cities per user is greater than 2"
+},
+"8192": {
+"Name": "USERS_BY_IMPRESSIONS_MOBILE_VIDEO",
+"Description": "The number of mobile video impressions per user is greater than 50, all from the same country"
+},
+"16384": {
+"Name": "USERS_BY_IMPRESSIONS_MOBILE_DISPLAY",
+"Description": "The number of mobile display impressions per user is greater than 94, all from the same country"
+},
+"32768": {
+"Name": "USERS_BY_INTERVAL_IMPRESSIONS_NON_MOBILE_VIDEO",
+"Description": "Users that generate more than 4 impressions per 10 mins at least 72 times a day"
+},
+"65536": {
+"Name": "USERS_BY_INTERVAL_IMPRESSIONS_NON_MOBILE_DISPLAY",
+"Description": "Users that generate more than 4 impressions per 10 mins at least 72 times a day"
+},
+"131072": {
+"Name": "USERS_BY_VALID_CLICKS_MOBILE_VIDEO",
+"Description": "Users that that generate more than 5 clicks, all from the same country"
+},
+"262144": {
+"Name": "USERS_BY_VALID_CLICKS_MOBILE_DISPLAY",
+"Description": "Users that that generate more than 40 clicks, all from the same country"
+},
+"524288": {
+"Name": "USERS_BY_DEVICE_FOOTPRINT_MOBILE_VIDEO",
+"Description": "The number of unique devices per user is greater than 1"
+},
+"1048576": {
+"Name": "USERS_BY_DEVICE_FOOTPRINT_MOBILE_DISPLAY",
+"Description": "The number of unique devices per user is greater than 1"
+},
+"2097152": {
+"Name": "USERS_BY_OS_FOOTPRINT_NON_MOBILE_VIDEO",
+"Description": "The number of unique OS's per user is greater than 1"
+},
+"4194304": {
+"Name": "USERS_BY_OS_FOOTPRINT_NON_MOBILE_DISPLAY",
+"Description": "The number of unique OS's per user is greater than 1"
+},
+"8388608": {
+"Name": "USERS_BY_OS_FOOTPRINT_MOBILE_VIDEO",
+"Description": "The number of unique OS's per user is greater than 1"
+},
+"16777216": {
+"Name": "USERS_BY_OS_FOOTPRINT_MOBILE_DISPLAY",
+"Description": "The number of unique OS's per user is greater than 1"
+},
+"33554432": {
+"Name": "USER_IP_SIMILAR_SESSION",
+"Description": "??"
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

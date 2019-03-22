@@ -1,0 +1,46 @@
+{
+"1": {
+"Name": "BY_DOMAIN_GHOST",
+"Description": "?"
+},
+"2": {
+"Name": "BY_DOMAIN_MALWARE",
+"Description": "?"
+},
+"4": {
+"Name": "BY_DOMAIN_NO_ADS",
+"Description": "?"
+},
+"8": {
+"Name": "BY_DOMAIN_ALTERNATIVE_GHOST",
+"Description": "?"
+},
+"16": {
+"Name": "BY_DOMAIN_ALTERNATIVE_MALWARE",
+"Description": "?"
+},
+"32": {
+"Name": "BY_DOMAIN_TORRENT",
+"Description": "?"
+},
+"64": {
+"Name": "BY_DOMAIN_MOBILE_FRAUDULENT_APPS",
+"Description": "?"
+},
+"128": {
+"Name": "SESSION_AD_STACKING",
+"Description": "?"
+},
+"256": {
+"Name": "SESSION_AD_COLLISION",
+"Description": "?"
+},
+"512": {
+"Name": "SESSION_AD_CAROUSEL",
+"Description": "?"
+},
+"1024": {
+"Name": "BY_DOMAIN_SHORT_SESSIONS",
+"Description": "?"
+}
+}

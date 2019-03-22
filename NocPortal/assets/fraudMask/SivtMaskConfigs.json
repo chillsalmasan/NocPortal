@@ -1,0 +1,64 @@
+{
+"1": {
+"Name": "BY_DOMAIN_GHOST",
+"Description": "Ghost sites"
+},
+"2": {
+"Name": "BY_DOMAIN_MALWARE",
+"Description": "Malware sites"
+},
+"4": {
+"Name": "BY_DOMAIN_NO_ADS",
+"Description": "Sites that are expected to have no ads (like banks, gov), but had some anyway"
+},
+"8": {
+"Name": "BY_DOMAIN_ALTERNATIVE_GHOST",
+"Description": "Ghost sites but not for the best chosen url (taken from alternative urls)"
+},
+"16": {
+"Name": "BY_DOMAIN_ALTERNATIVE_MALWARE",
+"Description": "Malware sites but not for the best chosen url (taken from alternative urls)"
+},
+"32": {
+"Name": "BY_DOMAIN_TORRENT",
+"Description": "Torren sites"
+},
+"64": {
+"Name": "BY_DOMAIN_MOBILE_FRAUDULENT_APPS",
+"Description": "Mobile fraudulent applications"
+},
+"128": {
+"Name": "SESSION_AD_STACKING",
+"Description": "Ad stacking"
+},
+"256": {
+"Name": "SESSION_AD_COLLISION",
+"Description": "Ad collision"
+},
+"512": {
+"Name": "SESSION_AD_CAROUSEL",
+"Description": "Ad carousel"
+},
+"1024": {
+"Name": "BY_DOMAIN_SHORT_SESSIONS",
+"Description": "Short sessions"
+},
+"2048": {
+"Name": "BY_USER_GHOST_ML",
+"Description": "Ghost using machine learning (SIVTML by user)"
+},
+"4096": {
+"Name": "BY_IPUA_GHOST_ML",
+"Description": "Ghost using machine learning (SIVTML  by ip and user agent)"
+},
+"8192": {
+"Name": "URL_SPOOFING",
+"Description": "Url spoofing"
+}
+}
+
+
+
+
+
+

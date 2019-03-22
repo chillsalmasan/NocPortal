@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\lee.hellow\Desktop\NocPortal</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>07/23/2016 23:32:38</publishTime>
+    </File>
+    <File Include="bin/NocPortal.dll">
+      <publishTime>09/19/2016 18:37:47</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>07/23/2016 23:32:37</publishTime>
+    </File>
+    <File Include="Homepage.aspx">
+      <publishTime>09/19/2016 18:30:01</publishTime>
+    </File>
+    <File Include="icons/critical issues.png">
+      <publishTime>09/11/2016 12:32:46</publishTime>
+    </File>
+    <File Include="icons/dashboard.png">
+      <publishTime>09/11/2016 12:32:46</publishTime>
+    </File>
+    <File Include="icons/NOTIFICATIONs.png">
+      <publishTime>09/11/2016 12:32:46</publishTime>
+    </File>
+    <File Include="icons/on call.png">
+      <publishTime>09/11/2016 12:32:46</publishTime>
+    </File>
+    <File Include="icons/open ticket.png">
+      <publishTime>09/11/2016 12:32:46</publishTime>
+    </File>
+    <File Include="icons/open ticket2.png">
+      <publishTime>09/11/2016 12:32:46</publishTime>
+    </File>
+    <File Include="icons/planned maintenence.png">
+      <publishTime>09/11/2016 12:32:46</publishTime>
+    </File>
+    <File Include="icons/shift summary.png">
+      <publishTime>09/11/2016 12:32:46</publishTime>
+    </File>
+    <File Include="img/bkg-blu.jpg">
+      <publishTime>07/23/2016 23:34:41</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>07/23/2016 23:32:38</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/19/2016 18:37:47</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
