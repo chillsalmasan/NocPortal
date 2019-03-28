@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,7 +20,7 @@ namespace GMTReportsReadiness
         DateTime GMTpredefinedSLA = DateTime.Parse(DateTime.Today.ToString("MM/dd/yyyy") + " " + "08:00:00");
         DateTime GMTolapSLA = DateTime.Parse(DateTime.Today.ToString("MM/dd/yyyy") + " " + "09:00:00");
         DateTime GMTdatafeedSLA = DateTime.Parse(DateTime.Today.ToString("MM/dd/yyyy") + " " + "08:00:00");
-
+        DateTime GMTdatafeedSLACutOff = DateTime.Parse(DateTime.Today.ToString("MM/dd/yyyy") + " " + "08:05:00");
         DateTime Xaxis730SLA = DateTime.Parse(DateTime.Today.ToString("MM/dd/yyyy") + " " + "07:30:00");
 
 
@@ -45,7 +46,7 @@ namespace GMTReportsReadiness
         private void checkBDB()
         {
             SqlDataReader myReader = null;
-            SqlConnection conn = new SqlConnection("user id=" + "readonlyuser" + ";" + "password=" + "rou123" + ";" + "server=" + "BDBNJ" + ";" + "Trusted_Connection=false;" + "database=" + "master" + ";" + "connection timeout=30");
+            SqlConnection conn = new SqlConnection("user id=" + "readonlyuser" + ";" + "password=" + "rou123" + ";" + "server=" + "BDBNJ.eyedcny.local" + ";" + "Trusted_Connection=false;" + "database=" + "master" + ";" + "connection timeout=30");
             conn.Open();
             //string stmt5 = "SELECT TimeZoneID , Description , BurstingDB.dbo.DateIDToDateTime(LastAggDateID) AS PTM_API_AggDatafeed_Currently_Availabe_Data , DATEADD(dd,-1, BurstingDB.dbo.DateIDToDateTime(LastCRBSyncRepDateUpdateDateIDIncludeHour / 100 * 100)) AS CRB_VA_Currently_Availabe_Data FROM BurstingDB..TimeZoneLookup WHERE AdditionalTimeZoneSupported = 1 AND Description = 'GMT Greenwich Mean Time';";
             string stmt5 = "SELECT [TimeZoneID] ,[GMT] ,[LastAggDateID] ,[Description] ,[EST] ,[LastVAAggDateID] ,[LastVAPublishDate] ,[VaAggUpdateTime] ,[AggUpdateTime] FROM [BurstingDB].[dbo].[TimeZoneLookup] WHERE AdditionalTimeZoneSupported = 1 AND Description = 'GMT Greenwich Mean Time';";
@@ -76,7 +77,7 @@ namespace GMTReportsReadiness
 
 
                 //if the predefined reports are still not ready
-                if (predefinedDate != DateTime.Today) 
+                if (predefinedDate != DateTime.Today)
                 {
                     predefinedDiff.InnerText = "";
                     XaxisPredefinedDiff.InnerText = "";
@@ -209,7 +210,7 @@ namespace GMTReportsReadiness
         private void checkDatafeed()
         {
             SqlDataReader myReader = null;
-            SqlConnection conn = new SqlConnection("user id=" + "readonlyuser" + ";" + "password=" + "rou123" + ";" + "server=" + "RSDWHNJ" + ";" + "Trusted_Connection=false;" + "database=" + "Reportsdwh" + ";" + "connection timeout=30");
+            SqlConnection conn = new SqlConnection("user id=" + "readonlyuser" + ";" + "password=" + "rou123" + ";" + "server=" + "RSDWHNJ.eyedcny.local" + ";" + "Trusted_Connection=false;" + "database=" + "Reportsdwh" + ";" + "connection timeout=30");
             conn.Open();
             string stmt5 = "SELECT FeedName, MAX(AvailabeSince) AS AvailabeSince ,MAX(LastDateAvailabe) AS LastDateAvailabe FROM dbo.DataFeeds_Status_ByAccount_Detailed WHERE (FeedName LIKE '%Xaxis DE%' or FeedName  like '%AllAccount%GMT%') AND LastDateAvailabe < GetDate() GROUP BY FeedName;";
             SqlCommand comm4 = new SqlCommand(stmt5, conn);
@@ -256,6 +257,12 @@ namespace GMTReportsReadiness
 
                         HiddenGroupMReady.Value = "0";
 
+                        //NEW CODE
+                        if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
+                        {
+                            sendMail("GroupM_DE_AllAccount_GP_GMT Not Ready", "GroupM DE AllAccount GP GMT is not yet ready.");
+                        }
+                        //END
                         GroupMStatus.InnerText = "Not Ready";
                         GroupMStatus.Style.Add("color", "orange");
 
@@ -263,7 +270,7 @@ namespace GMTReportsReadiness
                         {
                             GroupMRow.Attributes.Add("class", "warning");
                         }
-                        else if(GMTSLAdiff >= 60)
+                        else if (GMTSLAdiff >= 60)
                         {
                             GroupMRow.Attributes.Add("class", "danger");
                         }
@@ -279,10 +286,18 @@ namespace GMTReportsReadiness
                         if (GMTdatafeedDiff.TotalMinutes > 0)
                         {
                             GroupMDiff.InnerText = Math.Floor(GMTdatafeedDiff.TotalMinutes).ToString();
+
+                            //NEW CODE
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
+                            {
+                                sendMail("GroupM_DE_AllAccount_GP_GMT is now Ready", "GroupM DE AllAccount GP GMT is now ready and were delivered with delay.");
+                            }
+                            //END
+
                             GroupMStatus.InnerText = "Were delivered with Delay";
                             GroupMStatus.Style.Add("color", "red");
 
-                            if(GMTdatafeedDiff.TotalMinutes < 60)
+                            if (GMTdatafeedDiff.TotalMinutes < 60)
                             {
                                 GroupMRow.Attributes.Add("class", "warning");
                             }
@@ -293,6 +308,12 @@ namespace GMTReportsReadiness
                         }
                         else
                         {
+                            //NEW CODE
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
+                            {
+                                sendMail("GroupM_DE_AllAccount_GP_GMT is now Ready", "GroupM DE AllAccount GP GMT is now ready.");
+                            }
+                            //END
                             GroupMStatus.InnerText = "Ready";
                             GroupMStatus.Style.Add("color", "green");
 
@@ -304,7 +325,7 @@ namespace GMTReportsReadiness
                         {
                             XaxisGroupMDiff.InnerText = Math.Floor(Xaxis730SLADiff.TotalMinutes).ToString();
                         }
-                    }        
+                    }
                 }
                 else if (myReader["FeedName"].ToString() == "GroupM_DE_AllAccount_WinningEvent_GMT")
                 {
@@ -334,6 +355,7 @@ namespace GMTReportsReadiness
 
                     //TimeSpan GMTdatafeedDiff = GMTdatafeed.Subtract(GMTdatafeedSLA);
                     TimeSpan GMTdatafeedDiff2 = datafeedTimeInGMT.Subtract(GMTdatafeedSLA);
+
                     if (DateTime.Parse(datafeedTimeInGMT.ToString().Split(' ')[0]) != DateTime.Today)
                     {
                         GroupMDiff2.InnerText = "";
@@ -341,6 +363,13 @@ namespace GMTReportsReadiness
 
 
                         HiddenGroupMReady2.Value = "0";
+
+                        //NEW CODE
+                        if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
+                        {
+                            sendMail("GroupM_DE_AllAccount_WinningEvent_GMT is not yet ready", "GroupM_DE_AllAccount_WinningEvent_GMT is not yet ready.");
+                        }
+                        //END
 
                         GroupMStatus2.InnerText = "Not Ready";
                         GroupMStatus2.Style.Add("color", "orange");
@@ -365,6 +394,15 @@ namespace GMTReportsReadiness
                         if (GMTdatafeedDiff2.TotalMinutes > 0)
                         {
                             GroupMDiff2.InnerText = Math.Floor(GMTdatafeedDiff2.TotalMinutes).ToString();
+
+                            //NEW CODE
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
+                            {
+                                sendMail("GroupM_DE_AllAccount_WinningEvent_GMT is now ready", "GroupM_DE_AllAccount_WinningEvent_GMT is now ready and were delivered with delay.");
+
+                            }
+                            //END
+
                             GroupMStatus2.InnerText = "Were delivered with Delay";
                             GroupMStatus2.Style.Add("color", "red");
 
@@ -379,6 +417,13 @@ namespace GMTReportsReadiness
                         }
                         else
                         {
+                            //NEW CODE
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
+                            {
+                                sendMail("GroupM_DE_AllAccount_WinningEvent_GMT is now ready", "GroupM_DE_AllAccount_WinningEvent_GMT is now ready.");
+                            }
+                            //END
+
                             GroupMStatus2.InnerText = "Ready";
                             GroupMStatus2.Style.Add("color", "green");
 
@@ -425,6 +470,13 @@ namespace GMTReportsReadiness
 
                         HiddenDailyFeedReady.Value = "0";
 
+                        //NEW CODE
+                        if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
+                        {
+                            sendMail("Xaxis DE - Daily feed is not yet ready", "Xaxis DE - Daily feed is not yet ready.");
+                        }
+                        //END
+
                         XaxisDailyStatus.InnerText = "Not Ready";
                         XaxisDailyStatus.Style.Add("color", "orange");
 
@@ -448,6 +500,14 @@ namespace GMTReportsReadiness
                         if (GMTdatafeedDiff.TotalMinutes > 0)
                         {
                             XaxisDailyDiff.InnerText = Math.Floor(GMTdatafeedDiff.TotalMinutes).ToString();
+
+                            //NEW CODE
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
+                            {
+                                sendMail("Xaxis DE - Daily feed is now ready", "Xaxis DE - Daily feed is now ready and were delivered with delay.");
+                            }
+                            //END
+
                             XaxisDailyStatus.InnerText = "Were delivered with Delay";
                             XaxisDailyStatus.Style.Add("color", "red");
 
@@ -462,6 +522,13 @@ namespace GMTReportsReadiness
                         }
                         else
                         {
+                            //NEW CODE
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
+                            {
+                                sendMail("Xaxis DE - Daily feed is now ready", "Xaxis DE - Daily feed is now ready.");
+                            }
+                            //END
+
                             XaxisDailyStatus.InnerText = "Ready";
                             XaxisDailyStatus.Style.Add("color", "green");
 
@@ -486,7 +553,7 @@ namespace GMTReportsReadiness
             checkBDB();
             checkDatafeed();
 
-            if(HiddenPredefinedReady.Value == "1" && HiddenOlapReady.Value == "1" && HiddenGroupMReady.Value == "1" && HiddenGroupMReady2.Value == "1" && HiddenDailyFeedReady.Value == "1")
+            if (HiddenPredefinedReady.Value == "1" && HiddenOlapReady.Value == "1" && HiddenGroupMReady.Value == "1" && HiddenGroupMReady2.Value == "1" && HiddenDailyFeedReady.Value == "1")
             {//meaning if all the reports are ready
 
                 storeInDatabase();
@@ -494,7 +561,18 @@ namespace GMTReportsReadiness
                 saveData();
             }
         }
+        //Additional Code
+        public static void sendMail(string emailSubject, string emailBody)
+        {
+            MailMessage mailMessage = new MailMessage("xaxisreports@sizmek.com", "nocsupport@sizmek.com");
+            mailMessage.Subject = emailSubject;
+            mailMessage.Body = emailBody;
 
+            SmtpClient smtpClient = new SmtpClient("10.10.2.15", 25);
+            smtpClient.EnableSsl = false;
+            smtpClient.Send(mailMessage);
+        }
+        //End of additional code
 
         private void saveData()
         {
