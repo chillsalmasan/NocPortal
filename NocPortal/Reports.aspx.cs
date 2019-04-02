@@ -20,7 +20,7 @@ namespace GMTReportsReadiness
         DateTime GMTpredefinedSLA = DateTime.Parse(DateTime.Today.ToString("MM/dd/yyyy") + " " + "08:00:00");
         DateTime GMTolapSLA = DateTime.Parse(DateTime.Today.ToString("MM/dd/yyyy") + " " + "09:00:00");
         DateTime GMTdatafeedSLA = DateTime.Parse(DateTime.Today.ToString("MM/dd/yyyy") + " " + "08:00:00");
-        DateTime GMTdatafeedSLACutOff = DateTime.Parse(DateTime.Today.ToString("MM/dd/yyyy") + " " + "08:05:00");
+        DateTime GMTdatafeedSLACutOff = DateTime.Parse(DateTime.Today.ToString("MM/dd/yyyy") + " " + "08:03:00");
         DateTime Xaxis730SLA = DateTime.Parse(DateTime.Today.ToString("MM/dd/yyyy") + " " + "07:30:00");
 
 
@@ -258,7 +258,7 @@ namespace GMTReportsReadiness
                         HiddenGroupMReady.Value = "0";
 
                         //NEW CODE
-                        if (utc == GMTdatafeedSLA)
+                        if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
                         {
                             sendMail("GroupM_DE_AllAccount_GP_GMT Not Ready", "GroupM DE AllAccount GP GMT is not yet ready.");
                         }
@@ -288,7 +288,7 @@ namespace GMTReportsReadiness
                             GroupMDiff.InnerText = Math.Floor(GMTdatafeedDiff.TotalMinutes).ToString();
 
                             //NEW CODE
-                            if (utc == GMTdatafeedSLA)
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
                             {
                                 sendMail("GroupM_DE_AllAccount_GP_GMT is now Ready", "GroupM DE AllAccount GP GMT is now ready and were delivered with delay.");
                             }
@@ -309,7 +309,7 @@ namespace GMTReportsReadiness
                         else
                         {
                             //NEW CODE
-                            if (utc == GMTdatafeedSLA)
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
                             {
                                 sendMail("GroupM_DE_AllAccount_GP_GMT is now Ready", "GroupM DE AllAccount GP GMT is now ready.");
                             }
@@ -365,7 +365,7 @@ namespace GMTReportsReadiness
                         HiddenGroupMReady2.Value = "0";
 
                         //NEW CODE
-                        if (utc == GMTdatafeedSLA)
+                        if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
                         {
                             sendMail("GroupM_DE_AllAccount_WinningEvent_GMT is not yet ready", "GroupM_DE_AllAccount_WinningEvent_GMT is not yet ready.");
                         }
@@ -396,7 +396,7 @@ namespace GMTReportsReadiness
                             GroupMDiff2.InnerText = Math.Floor(GMTdatafeedDiff2.TotalMinutes).ToString();
 
                             //NEW CODE
-                            if (utc == GMTdatafeedSLA)
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
                             {
                                 sendMail("GroupM_DE_AllAccount_WinningEvent_GMT is now ready", "GroupM_DE_AllAccount_WinningEvent_GMT is now ready and were delivered with delay.");
 
@@ -418,7 +418,7 @@ namespace GMTReportsReadiness
                         else
                         {
                             //NEW CODE
-                            if (utc == GMTdatafeedSLA)
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
                             {
                                 sendMail("GroupM_DE_AllAccount_WinningEvent_GMT is now ready", "GroupM_DE_AllAccount_WinningEvent_GMT is now ready.");
                             }
@@ -471,7 +471,7 @@ namespace GMTReportsReadiness
                         HiddenDailyFeedReady.Value = "0";
 
                         //NEW CODE
-                        if (utc == GMTdatafeedSLA)
+                        if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
                         {
                             sendMail("Xaxis DE - Daily feed is not yet ready", "Xaxis DE - Daily feed is not yet ready.");
                         }
@@ -502,7 +502,7 @@ namespace GMTReportsReadiness
                             XaxisDailyDiff.InnerText = Math.Floor(GMTdatafeedDiff.TotalMinutes).ToString();
 
                             //NEW CODE
-                            if (utc == GMTdatafeedSLA)
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
                             {
                                 sendMail("Xaxis DE - Daily feed is now ready", "Xaxis DE - Daily feed is now ready and were delivered with delay.");
                             }
@@ -523,7 +523,7 @@ namespace GMTReportsReadiness
                         else
                         {
                             //NEW CODE
-                            if (utc == GMTdatafeedSLA)
+                            if (utc >= GMTdatafeedSLA && utc <= GMTdatafeedSLACutOff)
                             {
                                 sendMail("Xaxis DE - Daily feed is now ready", "Xaxis DE - Daily feed is now ready.");
                             }
